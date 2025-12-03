@@ -20,7 +20,5 @@ const response = await sql`
   <div class="container">
     <h1>{response[0].now}</h1>
   </div>
-  <div class="container pt-2">
-    <p>{JSON.stringify(response[0].now)} | {Math.random()}</p>
-  </div>
+  <div class="container pt-2"></div>
 </Layout>
