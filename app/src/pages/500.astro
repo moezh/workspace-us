@@ -1,0 +1,24 @@
+---
+export const prerender = true;
+import Layout from "../layouts/Layout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "500 | Server Error",
+  description: "Internal server error.",
+};
+---
+
+<Layout
+  title="500 | Server Error"
+  description="Internal server error."
+  schema={schema}
+>
+  <div class="container">
+    <h1>500 | Server Error</h1>
+  </div>
+  <div class="container pt-2">
+    <p>Internal server error.</p>
+  </div>
+</Layout>

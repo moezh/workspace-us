@@ -1,0 +1,35 @@
+---
+export const prerender = true;
+import Layout from "../layouts/Layout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Contact",
+  description:
+    "If you have any questions or inquiries, no matter how big or small, please do not hesitate to reach out to me.",
+};
+---
+
+<Layout
+  title="Contact"
+  description="If you have any questions or inquiries, no matter how big or small, please do not hesitate to reach out to me."
+  schema={schema}
+>
+  <div class="container">
+    <h1>Contact</h1>
+  </div>
+  <div class="container pt-2">
+    <p>
+      If you have any questions or inquiries, no matter how big or small, please
+      do not hesitate to reach out to me.
+    </p>
+    <h2>
+      <a
+        href={`mailto:contact@moezh.com`}
+        target="_blank"
+        aria-label="Contact via email">{`contact@moezh.com`}</a
+      >
+    </h2>
+  </div>
+</Layout>

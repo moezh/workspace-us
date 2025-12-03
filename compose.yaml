@@ -1,0 +1,32 @@
+name: workspace-${APP_ENVIRONMENT}
+services:
+  app:
+    build:
+      context: ./app
+      target: ${APP_ENVIRONMENT}
+    container_name: app-${APP_ENVIRONMENT}
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    depends_on:
+      - db
+    ports:
+      - "80:4321"
+    volumes:
+      - ./app:/app
+    restart: unless-stopped
+  db:
+    build:
+      context: ./db
+    container_name: db-${APP_ENVIRONMENT}
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+    restart: unless-stopped
+volumes:
+  pgdata:
+    name: db-data-${APP_ENVIRONMENT}

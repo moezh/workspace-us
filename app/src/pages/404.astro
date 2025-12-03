@@ -1,0 +1,25 @@
+---
+export const prerender = true;
+import Layout from "../layouts/Layout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "404 | Not Found",
+  description:
+    "The requested resource could not be located or accessed at this time.",
+};
+---
+
+<Layout
+  title="404 | Not Found"
+  description="The requested resource could not be located or accessed at this time."
+  schema={schema}
+>
+  <div class="container">
+    <h1>404 | Not Found</h1>
+  </div>
+  <div class="container pt-2">
+    <p>The requested resource could not be located or accessed at this time.</p>
+  </div>
+</Layout>
